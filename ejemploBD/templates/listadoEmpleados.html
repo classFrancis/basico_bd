@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+     <title>ADM. RESERVAS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body class="container mt-5">
+    <div class="alert alert-info display-4 text-center">Empleados</div>
+     
+    {% if empleados %}
+    <table class="table">
+        <thead>
+            <tr>cantidad de registros: {{cantidad}}</tr>
+            <tr>
+                <th>nombre </th>
+                <th>apellidoPaterno </th>
+                <th>apellidoMaterno </th>
+                <th>email </th>
+                <th>telefono </th>
+                <th>direccion </th>
+                <th>fechaContratacion </th>
+                <th>fechaNacimiento </th>
+                <th>salario </th>
+                <th>comision </th>
+                <th>cargoId_id </th>
+                <th>departamentoId_id </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in empleados %}
+            <tr>
+                <td>{{ emp.nombre }}</td>
+                <td>{{ emp.apellidoPaterno }}</td>
+                <td>{{ emp.apellidoMaterno }}</td>
+                <td>{{ emp.email }}</td>
+                <td>{{ emp.telefono }}</td>
+                <td>{{ emp.direccion }}</td>
+                <td>{{ emp.fechaContratacion }}</td>
+                <td>{{ emp.fechaNacimiento }}</td>
+                <td>{{ emp.salario }}</td>
+                <td>{{ emp.comision }}</td>
+                <td>{{ emp.cargoId_id }}</td>
+                <td>{{ emp.departamentoId_id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info">No se encuentran empleados en el Sistema</div>
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

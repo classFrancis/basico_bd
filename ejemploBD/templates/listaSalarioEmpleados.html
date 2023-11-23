@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+     <title>Salarios empleados</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body class="container mt-5">
+    <div class="alert alert-info display-4 text-center">Salarios</div>
+     
+    {% if empleados %}
+    <table class="table">
+        <thead>
+            <tr>cantidad de empleados: {{ cantidadEmpleados.idEmpleado__count }}</tr>
+            <tr>
+                <th>Promedio salarios</th>
+                <th>Salario maximo</th>
+                <th>Salario minimo</th>
+                <th>Suma total salarios</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>${{ promedio.salario__avg }}</td>
+                <td>${{ maxSalario.salario__max }}</td>
+                <td>${{ minSalario.salario__min }}</td>
+                <td>${{ sumaTotalSalario.salario__sum }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info">No se encuentran salarios registrados en el sistema</div>
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
